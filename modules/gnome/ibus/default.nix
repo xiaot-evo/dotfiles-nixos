@@ -2,8 +2,9 @@
 
 {
   i18n.inputMethod = {
-    enable = true;
-    type = "ibus";
+    # enable = true;
+    # type = "ibus";
+    enabled = "ibus";
     ibus.engines = with pkgs.ibus-engines;
       [
         # any engine you want, for example
