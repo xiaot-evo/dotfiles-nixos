@@ -9,6 +9,8 @@
     ./hardware-configuration.nix
     ../../modules/nvidia.nix
     ../../modules/gnome
+    ../../modules/hyprland
+    ../../modules/clash-verge
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -18,7 +20,7 @@
     systemd-boot.enable = true;
     # grub = {
     #   enable = true;
-    #   device = "nodev";
+    #   device = environment.sessionVariables.NIXOS_OZONE_WL = "1";"nodev";
     #   efiSupport = true;
     #   useOSProber = true;
     # };
@@ -41,16 +43,17 @@
     };
 
     # Enable "Silent Boot"
-    consoleLogLevel = 0;
+    consoleLogLevel = 3;
     initrd.verbose = false;
     kernelParams = [
       "quiet"
       "splash"
-      "boot.shell_on_fail"
-      "loglevel=3"
-      "rd.systemd.show_status=false"
-      "rd.udev.log_level=3"
+      # "boot.shell_on_fail"
+      # "loglevel=3"
+      # "rd.systemd.show_status=false"
+      # "rd.udev.log_level=3"
       "udev.log_priority=3"
+      "rd.systemd.show_status=auto"
     ];
     # Hide the OS choice for bootloaders.
     # It's still possible to open the bootloader list by pressing any key
@@ -113,11 +116,6 @@
   ];
 
   nixpkgs.config.allowUnfree = true;
-
-  programs.clash-verge = {
-    enable = true;
-    autoStart = true;
-  };
 
   # programs.clash-verge.enable = true;
   # Some programs need SUID wrappers, can be configured further or are

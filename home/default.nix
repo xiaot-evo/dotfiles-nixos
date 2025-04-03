@@ -6,13 +6,14 @@
     ./zed-editor
     ./gnome
     ./git
-    # ./fcitx5
+    ./fonts
 
   ];
 
   home.username = "xiaoting";
   home.homeDirectory = "/home/xiaoting";
-
+  # home.shell.enableZshIntegration = true;
+  # programs.fish.enable = true;
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new Home Manager release introduces backwards
