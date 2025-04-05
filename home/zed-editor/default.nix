@@ -34,6 +34,7 @@
         };
 
       };
+      proxy = "http://127.0.0.1:7899";
       vim_mode = false;
       ui_font_size = 16;
       buffer_font_size = 16;

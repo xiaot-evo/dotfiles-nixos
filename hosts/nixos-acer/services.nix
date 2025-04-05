@@ -1,8 +1,22 @@
 { ... }:
 
 {
+  # Enable sound.
+  # hardware.pulseaudio.enable = true;
+  # OR
+  services.pipewire = {
+    enable = true;
+    pulse.enable = true;
+    audio.enable = true;
+    alsa.enable = true;
+    jack.enable = true;
+    wireplumber.enable = true;
+  };
   # Enable CUPS to print documents.
   services.printing.enable = true;
+  # Enable touchpad support (enabled default in most desktopManager).
+  services.libinput.enable = true;
+  services.power-profiles-daemon.enable = false;
   services.tlp = {
     enable = true;
     settings = {

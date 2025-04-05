@@ -81,21 +81,6 @@
   # services.xserver.xkb.layout = "us";
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
-  # Enable sound.
-  # hardware.pulseaudio.enable = true;
-  # OR
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-    audio.enable = true;
-    alsa.enable = true;
-    jack.enable = true;
-    wireplumber.enable = true;
-  };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  services.libinput.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.xiaoting = {
     isNormalUser = true;
@@ -107,7 +92,7 @@
   # programs.firefox.enable = true;
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [ ];
+  environment.systemPackages = with pkgs; [ powertop ];
 
   nixpkgs.config.allowUnfree = true;
 
