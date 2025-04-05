@@ -7,9 +7,10 @@
 {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ../../modules/nvidia.nix
+    ./nvidia.nix
+    ./services.nix
     ../../modules/gnome
-    ../../modules/hyprland
+    # ../../modules/hyprland
     ../../modules/clash-verge
   ];
 
@@ -80,9 +81,6 @@
   # services.xserver.xkb.layout = "us";
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
   # Enable sound.
   # hardware.pulseaudio.enable = true;
   # OR
@@ -102,18 +100,14 @@
   users.users.xiaoting = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
+    # ignoreShellProgramCheck = true;
+
   };
 
   # programs.firefox.enable = true;
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-    git
-    fastfetch
-    lshw
-  ];
+  environment.systemPackages = with pkgs; [ ];
 
   nixpkgs.config.allowUnfree = true;
 

@@ -4,6 +4,9 @@
   home.packages = with pkgs; [
     ## cmd
     fastfetch
+    git
+    wget
+    neovim
     ## desktop
     clash-verge-rev
     gnome-extension-manager
@@ -15,6 +18,7 @@
     zen-browser.packages."${system}".default
     gnome-tweaks
     obs-studio
+    # kitty
     ## fonts
     noto-fonts
     noto-fonts-cjk-sans

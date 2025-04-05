@@ -7,6 +7,8 @@
     ./gnome
     ./git
     ./fonts
+    # ./fish
+    ./bash
 
   ];
 
