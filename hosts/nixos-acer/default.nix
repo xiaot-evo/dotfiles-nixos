@@ -12,6 +12,7 @@
     ../../modules/gnome
     # ../../modules/hyprland
     ../../modules/clash-verge
+    # ../../modules/onlyoffice-fonts.nix
   ];
 
   # Use the systemd-boot EFI boot loader.

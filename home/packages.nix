@@ -14,6 +14,7 @@
     qq
     wechat-uos
     telegram-desktop
+    # wpsoffice-cn
     onlyoffice-desktopeditors
     zen-browser.packages."${system}".default
     gnome-tweaks
