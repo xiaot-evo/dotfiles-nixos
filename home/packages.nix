@@ -1,4 +1,4 @@
-{ pkgs, zen-browser, ... }:
+{ pkgs, inputs, ... }:
 
 {
   home.packages = with pkgs; [
@@ -14,20 +14,19 @@
     qq
     wechat-uos
     telegram-desktop
-    # wpsoffice-cn
     onlyoffice-desktopeditors
-    zen-browser.packages."${system}".default
+    inputs.zen-browser.packages."${system}".twilight
     gnome-tweaks
     obs-studio
-    # kitty
+    # alacritty
     ## fonts
     noto-fonts
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
 
     # sarasa-gothic  #更纱黑体
-    source-code-pro
     hack-font
+    source-code-pro
     jetbrains-mono
   ];
 }

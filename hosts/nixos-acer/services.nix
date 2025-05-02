@@ -16,6 +16,7 @@
   services.printing.enable = true;
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
+  powerManagement.powertop.enable = true;
   # services.power-profiles-daemon.enable = false;
   # services.tlp = {
   #   enable = true;

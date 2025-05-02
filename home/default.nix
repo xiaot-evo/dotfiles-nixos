@@ -1,14 +1,15 @@
-{ ... }:
+{ inputs, ... }:
 
 {
   imports = [
+    #inputs.zen-browser.homeModules.twilight
     ./packages.nix
     ./zed-editor
     ./gnome
     ./git
     ./fonts
-    # ./fish
-    ./bash
+    ./fish.nix
+    ./alacritty.nix
 
   ];
 
