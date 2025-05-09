@@ -6,7 +6,9 @@
     fastfetch
     git
     wget
-    neovim
+    nixd
+    nixfmt-classic
+    package-version-server
     ## desktop
     clash-verge-rev
     gnome-extension-manager
@@ -25,6 +27,7 @@
     noto-fonts-cjk-serif
 
     # sarasa-gothic  #更纱黑体
+    smiley-sans
     hack-font
     source-code-pro
     jetbrains-mono

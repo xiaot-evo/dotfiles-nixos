@@ -10,10 +10,10 @@
     ./nvidia.nix
     ./services.nix
     ../../modules/gnome
-    # ../../modules/hyprland
     ../../modules/clash-verge
     ../../modules/onlyoffice-fonts.nix
     ../../modules/bash.nix
+    ../../modules/hyprland.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -94,7 +94,7 @@
   # programs.firefox.enable = true;
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [ powertop ];
+  environment.systemPackages = with pkgs; [ ];
 
   nixpkgs.config.allowUnfree = true;
 

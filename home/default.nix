@@ -2,12 +2,18 @@
 
 {
   imports = [
-    #inputs.zen-browser.homeModules.twilight
     ./packages.nix
-    ./zed-editor
-    ./gnome
-    ./git
-    ./fonts
+
+    ./hyprland
+    ./waybar
+    ./rofi.nix
+
+    ./zed-editor.nix
+    ./helix.nix
+    ./gnome.nix
+    ./gtk.nix
+    ./git.nix
+    ./fonts.nix
     ./fish.nix
     ./alacritty.nix
 

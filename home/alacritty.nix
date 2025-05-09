@@ -10,8 +10,8 @@
           columns = 120;
           lines = 40;
         };
-        opacity = 0.8;
-        blur = true;
+        opacity = 0.9;
+        # blur = true;
         # 在终端内容周围平均分配额外的 padding。
         # dynamic_padding: false
 
@@ -23,7 +23,8 @@
         #
         # macos 可以独占的配置:
         #     - transparent: 标题栏，透明背景和标题栏按钮
-        #     - buttonless: 标题栏，透明背景，但没有标题栏按钮
+        #     - buttonless:
+        #  标题栏，透明背景，但没有标题栏按钮
         decorations = "none";
 
         # 启动模式（配置变更需要重启生效）
@@ -56,14 +57,13 @@
         # Override the variant of the GTK theme. Commonly supported values are `dark`
         # and `light`. Set this to `None` to use the default theme variant.
         # gtk_theme_variant: None
-
-        # scrolling = {
+      };
+      scrolling = {
         # 回滚缓冲区中的最大行数。 设置为 0 会禁用滚动
-        #   history = 10000;
+        history = 10000;
 
         # 一次滚动几行
-        #   multiplier = 3;
-        # };
+        multiplier = 3;
       };
       # 字体配置
       font = {

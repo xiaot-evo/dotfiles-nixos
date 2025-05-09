@@ -8,14 +8,24 @@
   # services.xserver. desktopManager.gnome.enable = true;
   services.xserver = {
     enable = true;
-    displayManager.gdm.enable = true;
+    # displayManager.lightdm.enable = true;
+    displayManager.gdm = {
+      enable = true;
+      wayland = true;
+    };
     desktopManager.gnome.enable = true;
   };
   environment.gnome.excludePackages = with pkgs; [
     epiphany
     gnome-text-editor
     xterm
+    gnome-music
   ];
+  environment.systemPackages = with pkgs;
+    [
+      rhythmbox
+
+    ];
   environment.variables = {
     GTK_IM_MODULE = "ibus";
     QT_IM_MODULE = "ibus";

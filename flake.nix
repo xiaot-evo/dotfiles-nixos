@@ -14,13 +14,22 @@
       # to have it up to date or simply don't specify the nixpkgs input
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprland.url = "github:hyprwm/Hyprland";
+
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland"; # Prevents version mismatch.
+    };
+    ags.url = "github:aylur/ags";
   };
-  outputs = inputs@{ nixpkgs, home-manager, ... }: {
+  outputs = { nixpkgs, home-manager, zen-browser, ... }@inputs: {
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; }; # this is the important part
         system = "x86_64-linux";
         modules = [
           ./hosts/nixos-acer
+          # ./home
           home-manager.nixosModules.home-manager
           {
             home-manager.extraSpecialArgs = { inherit inputs; };
