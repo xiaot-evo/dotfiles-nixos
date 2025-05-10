@@ -5,5 +5,5 @@
     enable = true;
     generateCompletions = true;
   };
-  # xdg.configFile = ./fish;
+  xdg.configFile = ./fish;
 }
