@@ -20,7 +20,7 @@ let
     indicator_height = "2px";
   };
 in {
-  progarms.waybar.style = with custom; ''
+  programs.waybar.style = with custom; ''
     * {
       border: none;
       border-radius: 0px;

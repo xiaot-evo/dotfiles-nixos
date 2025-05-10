@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ inputs, pkgs, ... }: {
   home.packages = with pkgs; [
     hyprland
     xdg-desktop-portal-hyprland
@@ -12,9 +12,7 @@
     portalPackage = null;
     systemd.enable = true;
     plugins = [
-
+      #inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
     ];
-
   };
-
 }

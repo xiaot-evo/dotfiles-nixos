@@ -1,5 +1,15 @@
 {
   description = "NixOS configuration";
+
+  nixConfig = {
+    experimental-features = [ "flakes" "nix-command" ];
+    extra-substituters = [ "https://nix-community.cachix.org" ];
+    # extra-trusted-public-keys = [
+    #   "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+    #   "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+    # ];
+  };
+
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # nixpkgs.url = "https://mirrors.ustc.edu.cn/nix-channels/nixos-unstable/nixexprs.tar.xz";

@@ -44,6 +44,14 @@ in {
         <tt><small>{calendar}</small></tt>'';
       format-alt = "  {:%d/%m}";
     };
+    pulseaudio = {
+      format = "{icon} {volume}%";
+      format-muted = "<span foreground='${blue}'> </span> {volume}%";
+      format-icons = { default = [ "<span foreground='${blue}'> </span>" ]; };
+      scroll-step = 2;
+      on-click = "pamixer -t";
+      on-click-right = "pavucontrol";
+    };
     battery = {
       format = "<span foreground='${yellow}'>{icon}</span> {capacity}%";
       format-icons = [ " " " " " " " " " " ];

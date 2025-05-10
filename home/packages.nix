@@ -6,9 +6,6 @@
     fastfetch
     git
     wget
-    nixd
-    nixfmt-classic
-    package-version-server
     ## desktop
     clash-verge-rev
     gnome-extension-manager

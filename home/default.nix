@@ -2,6 +2,8 @@
 
 {
   imports = [
+    # inputs.zen-browser.homeModules.twilight
+    inputs.ags.homeManagerModules.default
     ./packages.nix
 
     ./hyprland
