@@ -12,6 +12,15 @@
     jack.enable = true;
     wireplumber.enable = true;
   };
+  services.displayManager.sddm.enable = true;
+  services.xserver = {
+    enable = true;
+    # displayManager.lightdm.enable = true;
+    # displayManager.gdm = {
+    #   enable = true;
+    #   wayland = true;
+    # };
+  };
   # Enable CUPS to print documents.
   services.printing.enable = true;
   # Enable touchpad support (enabled default in most desktopManager).

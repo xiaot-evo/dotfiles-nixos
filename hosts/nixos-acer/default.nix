@@ -2,18 +2,19 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, settings, ... }:
 
 {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./nvidia.nix
     ./services.nix
-    ../../modules/gnome
+    # ../../modules/gnome
     ../../modules/clash-verge
-    ../../modules/onlyoffice-fonts.nix
+    # ../../modules/onlyoffice-fonts.nix
     ../../modules/bash.nix
     ../../modules/hyprland.nix
+    # ../../modules/virtualbox.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -63,7 +64,7 @@
     # It will just not appear on screen unless a key is pressed
 
   };
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "${settings.hostname}"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;
@@ -78,7 +79,21 @@
   #   keyMap = "us";
   #   useXkbConfig = true; # use xkb.options in tty.
   # };
+  # Set your time zone.
+  time.timeZone = "Asia/Shanghai";
 
+  # Select internationalisation properties.
+  # i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = "zh_CN.UTF-8";
+  i18n.extraLocaleSettings = {
+    LC_CTYPE = "en_US.UTF-8";
+
+  };
+  environment.variables = {
+    GTK_IM_MODULE = "fcitx";
+    QT_IM_MODULE = "fcitx";
+    XMODIFIERS = "@im=fcitx";
+  };
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
@@ -86,7 +101,8 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.xiaoting = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
+    extraGroups =
+      [ "wheel" "networkmanager" "vboxusers" ]; # Enable ‘sudo’ for the user.
     # ignoreShellProgramCheck = true;
 
   };
@@ -140,8 +156,8 @@
   # and migrated your data accordingly.
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nix.settings.substituters =
-    [ "https://mirrors.ustc.edu.cn/nix-channels/store" ];
+  # nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  # nix.settings.substituters = [ "https://mirrors.ustc.edu.cn/nix-channels/store" ];
+  # nix.settings.substituters = [ "https://cache.nixos.org" ];
   system.stateVersion = "25.05";
 }
