@@ -1,11 +1,11 @@
-{ inputs, pkgs, settings, ... }: {
+{ inputs, config, pkgs, settings, ... }: {
   imports = [ inputs.ags.homeManagerModules.default ];
   programs.ags = {
     enable = true;
-
+    package = inputs.ags.packages.${settings.system}.default;
     # symlink to ~/.config/ags
-    configDir = ../assets/ags-gtk4;
-
+    # configDir = null;
+    configDir = config.lib.file.mkOutOfStoreSymlink "${inputs.self}/assets/simple-bar";
     # additional packages to add to gjs's runtime
     extraPackages = with inputs.ags.packages.${settings.system}; [
       io
@@ -28,14 +28,10 @@
       battery
     ];
   };
-  home.packages = with pkgs;[
+
+  home.packages = with pkgs; [
     sassc
     swww
-    maple-mono.NF
-    maple-mono.NF-CN
-    brightnessctl
-    bun
-    matugen
-    gtk-layer-shell
+
   ];
 }

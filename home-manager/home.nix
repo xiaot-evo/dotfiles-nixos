@@ -2,11 +2,11 @@
 
 {
   imports = [
-    # inputs.zen-browser.homeModules.default
+    ../assets
     ./packages.nix
 
     ./hypr
-    # ./waybar
+    ./hyprpanel.nix
     ./rofi.nix
     ./ags.nix
 
@@ -14,7 +14,6 @@
     ./helix.nix
     # ./gnome.nix
     ./gtk.nix
-    ./git.nix
     ./fonts.nix
     ./fish
     ./alacritty.nix
@@ -22,10 +21,29 @@
 
   ];
 
+  nixpkgs = {
+    # You can add overlays here
+    overlays = [
+      inputs.hyprpanel.overlay
+
+    ];
+    # Configure your nixpkgs instance
+    config = {
+      # Disable if you don't want unfree packages
+      allowUnfree = true;
+    };
+  };
+
   home.username = "xiaoting";
   home.homeDirectory = "/home/xiaoting";
   # home.shell.enableZshIntegration = true;
   # programs.fish.enable = true;
+  # Enable home-manager and git
+  programs.home-manager.enable = true;
+  programs.git.enable = true;
+
+  # Nicely reload system units when changing configs
+  systemd.user.startServices = "sd-switch";
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new Home Manager release introduces backwards
@@ -36,6 +54,4 @@
   # changes in each release.
   home.stateVersion = "25.05";
 
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
 }

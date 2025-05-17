@@ -3,9 +3,7 @@
     settings = {
       exec-once = [ # 在 Hyprland 启动时执行一次的命令
         # "waybar"
-        # "hyprpanel"
-        "swww-daemon"
-        "LANG=en_US.UTF-8 ags run --gtk4 &"
+        "ags run&"
         "fcitx5 --replace -d"
         "clash-verge"
       ];

@@ -9,12 +9,10 @@
     ./hardware-configuration.nix
     ./nvidia.nix
     ./services.nix
-    # ../../modules/gnome
     ../../modules/clash-verge
     # ../../modules/onlyoffice-fonts.nix
     ../../modules/bash.nix
     ../../modules/hyprland.nix
-    # ../../modules/virtualbox.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -101,6 +99,7 @@
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot =
     true; # powers up the default Bluetooth controller on boot
+  nixpkgs.config.allowUnfree = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.xiaoting = {
@@ -115,8 +114,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [ ];
-
-  nixpkgs.config.allowUnfree = true;
 
   # programs.clash-verge.enable = true;
   # Some programs need SUID wrappers, can be configured further or are
@@ -160,8 +157,13 @@
   # and migrated your data accordingly.
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  # nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  # nix.settings.substituters = [ "https://mirrors.ustc.edu.cn/nix-channels/store" ];
-  # nix.settings.substituters = [ "https://cache.nixos.org" ];
+  nix.settings = {
+    experimental-features = [ "nix-command" "flakes" ];
+    # substituters = [ "https://mirrors.ustc.edu.cn/nix-channels/store" ];
+    substituters = [ " https://nix-community.cachix.org" ];
+    trusted-public-keys = [
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+    ];
+  };
   system.stateVersion = "25.05";
 }

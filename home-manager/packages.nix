@@ -24,6 +24,8 @@
 
     # sarasa-gothic  #更纱黑体
     smiley-sans
+    maple-mono.NF
+    maple-mono.NF-CN
     nerd-fonts.hack
     source-code-pro
     jetbrains-mono

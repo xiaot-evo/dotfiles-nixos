@@ -1,15 +1,6 @@
 {
   description = "NixOS configuration";
 
-  nixConfig = {
-    experimental-features = [ "flakes" "nix-command" ];
-    extra-substituters = [ "https://nix-community.cachix.org" ];
-    extra-trusted-public-keys = [
-      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-    ];
-  };
-
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # nixpkgs.url = "https://mirrors.ustc.edu.cn/nix-channels/nixos-unstable/nixexprs.tar.xz";
@@ -34,14 +25,19 @@
       url = "github:aylur/ags";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # astal = {
-    #   url = "github:aylur/astal";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    astal = {
+      url = "github:aylur/astal";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    hyprpanel.url = "github:jas-singhfsu/hyprpanel";
+    # If you're worried about mismatched versions
+    # when using, e.g., `swww` from your own script,
+    # you can also do the following.
+    hyprpanel.inputs.nixpkgs.follows = "nixpkgs";
   };
-  outputs = inputs@{ nixpkgs, home-manager, ags, ... }:
+  outputs = inputs@{ nixpkgs, home-manager, ags, hyprpanel, ... }:
     let
-      settings = rec {
+      settings = {
         system = "x86_64-linux";
         username = "xiaoting";
         hostname = "nixos-acer";
@@ -51,17 +47,17 @@
         ${settings.hostname} = nixpkgs.lib.nixosSystem {
           modules = [
             ./hosts/${settings.hostname}
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.extraSpecialArgs = {
-                inherit inputs;
-                inherit settings;
-              };
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.${settings.username} =
-                import ./home-manager/home.nix;
-            }
+            # home-manager.nixosModules.home-manager
+            # {
+            #   home-manager.extraSpecialArgs = {
+            #     inherit inputs;
+            #     inherit settings;
+            #   };
+            #   home-manager.useGlobalPkgs = true;
+            #   home-manager.useUserPackages = true;
+            #   home-manager.users.${settings.username} =
+            #     import ./home-manager/home.nix;
+            # }
           ];
           specialArgs = {
             inherit inputs;
@@ -71,17 +67,15 @@
       };
       # Standalone home-manager configuration entrypoint.
       # 'home-manager switch --flake .#username
-      # homeConfigurations = {
-      #   ${settings.username} = home-manager.lib.homeManagerConfiguration {
-      #     pkgs = nixpkgs.legacyPackages.${settings.system};
-      #     modules = [
-      #       ./home
-      #     ];
-      #     extraSpecialArgs = {
-      #       inherit inputs;
-      #       inherit settings;
-      #     };
-      #   };
-      # };
+      homeConfigurations = {
+        ${settings.username} = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.${settings.system};
+          modules = [ ./home-manager/home.nix ];
+          extraSpecialArgs = {
+            inherit inputs;
+            inherit settings;
+          };
+        };
+      };
     };
 }

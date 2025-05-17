@@ -15,6 +15,6 @@
     ];
   };
   home.file.".config/hypr_" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${inputs.self}/config/hypr";
+    source = config.lib.file.mkOutOfStoreSymlink "${inputs.self}/assets/hypr";
   };
 }
