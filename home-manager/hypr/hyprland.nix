@@ -13,5 +13,6 @@
     plugins = [
       #inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
     ];
+    settings = { bind = import ./conf/binds.nix; };
   };
 }
