@@ -1,5 +1,5 @@
 { inputs, pkgs, ... }: {
-  imports = [ ./fcitx5 ];
+  imports = [ ./fcitx5.nix ];
   programs.hyprland = {
     enable = true;
     # set the flake package

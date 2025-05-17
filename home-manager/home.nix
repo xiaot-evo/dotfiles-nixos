@@ -5,11 +5,10 @@
     # inputs.zen-browser.homeModules.default
     ./packages.nix
 
-    ./hyprland
-    # ./hyprpanel.nix
+    ./hypr
     # ./waybar
     ./rofi.nix
-    ./ags
+    ./ags.nix
 
     ./zed-editor.nix
     ./helix.nix

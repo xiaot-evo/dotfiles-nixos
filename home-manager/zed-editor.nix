@@ -3,8 +3,13 @@
 {
   programs.zed-editor = {
     enable = true;
-    extensions = [ "hyprland" "nix" "v" ];
-    extraPackages = with pkgs; [ nixd nixfmt-classic package-version-server ];
+    extensions = [ "hyprland" "nix" "v" "hyprlang" ];
+    extraPackages = with pkgs; [
+      nixd
+      nixfmt-classic
+      package-version-server
+      hyprlang
+    ];
     userKeymaps = {
 
     };

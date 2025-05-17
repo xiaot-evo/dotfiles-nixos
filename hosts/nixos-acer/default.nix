@@ -98,6 +98,10 @@
   # services.xserver.xkb.layout = "us";
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
+  hardware.bluetooth.enable = true; # enables support for Bluetooth
+  hardware.bluetooth.powerOnBoot =
+    true; # powers up the default Bluetooth controller on boot
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.xiaoting = {
     isNormalUser = true;
