@@ -1,2 +1,3 @@
-node_modules/
-@girs/
+.vscode/*
+README.md
+tsconfig.json

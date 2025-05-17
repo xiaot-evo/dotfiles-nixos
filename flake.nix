@@ -34,6 +34,7 @@
     # when using, e.g., `swww` from your own script,
     # you can also do the following.
     hyprpanel.inputs.nixpkgs.follows = "nixpkgs";
+    matugen.url = "github:/InioX/Matugen";
   };
   outputs = inputs@{ nixpkgs, home-manager, ags, hyprpanel, ... }:
     let

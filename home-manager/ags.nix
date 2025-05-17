@@ -1,11 +1,10 @@
-{ inputs, config, pkgs, settings, ... }: {
+{ inputs, pkgs, settings, ... }: {
   imports = [ inputs.ags.homeManagerModules.default ];
   programs.ags = {
     enable = true;
     package = inputs.ags.packages.${settings.system}.default;
     # symlink to ~/.config/ags
-    # configDir = null;
-    configDir = config.lib.file.mkOutOfStoreSymlink "${inputs.self}/assets/simple-bar";
+    # configDir = ../assets/ags;
     # additional packages to add to gjs's runtime
     extraPackages = with inputs.ags.packages.${settings.system}; [
       io
@@ -28,10 +27,8 @@
       battery
     ];
   };
+  home.packages = with pkgs;
+    [
 
-  home.packages = with pkgs; [
-    sassc
-    swww
-
-  ];
+    ];
 }

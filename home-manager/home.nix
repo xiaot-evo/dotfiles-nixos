@@ -6,7 +6,7 @@
     ./packages.nix
 
     ./hypr
-    ./hyprpanel.nix
+    ./hyprpanel
     ./rofi.nix
     ./ags.nix
 
