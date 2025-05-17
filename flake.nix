@@ -45,20 +45,7 @@
     in {
       nixosConfigurations = {
         ${settings.hostname} = nixpkgs.lib.nixosSystem {
-          modules = [
-            ./hosts/${settings.hostname}
-            # home-manager.nixosModules.home-manager
-            # {
-            #   home-manager.extraSpecialArgs = {
-            #     inherit inputs;
-            #     inherit settings;
-            #   };
-            #   home-manager.useGlobalPkgs = true;
-            #   home-manager.useUserPackages = true;
-            #   home-manager.users.${settings.username} =
-            #     import ./home-manager/home.nix;
-            # }
-          ];
+          modules = [ ./hosts/${settings.hostname} ];
           specialArgs = {
             inherit inputs;
             inherit settings;

@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, settings, ... }:
 
 {
   imports = [
@@ -13,6 +13,7 @@
     ./zed-editor.nix
     ./helix.nix
     # ./gnome.nix
+    ./git.nix
     ./gtk.nix
     ./fonts.nix
     ./fish
@@ -34,14 +35,11 @@
     };
   };
 
-  home.username = "xiaoting";
-  home.homeDirectory = "/home/xiaoting";
+  home.username = "${settings.username}";
+  home.homeDirectory = "/home/${settings.username}";
   # home.shell.enableZshIntegration = true;
   # programs.fish.enable = true;
-  # Enable home-manager and git
   programs.home-manager.enable = true;
-  programs.git.enable = true;
-
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
   # This value determines the Home Manager release that your
