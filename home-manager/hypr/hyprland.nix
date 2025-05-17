@@ -14,7 +14,7 @@
       #inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
     ];
   };
-  home.file.".config/hypr_new" = {
+  home.file.".config/hypr_" = {
     source = config.lib.file.mkOutOfStoreSymlink "${inputs.self}/config/hypr";
   };
 }
