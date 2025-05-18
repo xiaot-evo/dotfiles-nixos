@@ -1,5 +1,5 @@
 {
-  description = "NixOS configuration";
+  description = "XiaoT_Evo's NixOS configuration";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -25,18 +25,12 @@
       url = "github:aylur/ags";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    astal = {
-      url = "github:aylur/astal";
+    hyprpanel = {
+      url = "github:jas-singhfsu/hyprpanel";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprpanel.url = "github:jas-singhfsu/hyprpanel";
-    # If you're worried about mismatched versions
-    # when using, e.g., `swww` from your own script,
-    # you can also do the following.
-    hyprpanel.inputs.nixpkgs.follows = "nixpkgs";
-    matugen.url = "github:/InioX/Matugen";
   };
-  outputs = inputs@{ nixpkgs, home-manager, ags, hyprpanel, ... }:
+  outputs = inputs@{ nixpkgs, home-manager, ... }:
     let
       settings = {
         system = "x86_64-linux";
@@ -46,7 +40,7 @@
     in {
       nixosConfigurations = {
         ${settings.hostname} = nixpkgs.lib.nixosSystem {
-          modules = [ ./hosts/${settings.hostname} ];
+          modules = [ ./hosts/${settings.hostname}/configuration.nix ];
           specialArgs = {
             inherit inputs;
             inherit settings;

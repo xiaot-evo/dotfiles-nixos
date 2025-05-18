@@ -30,9 +30,9 @@
   menus.dashboard.stats.enable_gpu = true;
 
   theme.bar.transparent = true;
-
+  theme.bar.buttons.workspaces.fontSize = "1rem";
   theme.font = {
     name = "Maple Mono NF";
-    size = "16px";
+    size = "1rem";
   };
 }

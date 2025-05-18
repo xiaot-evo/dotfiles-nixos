@@ -1,4 +1,11 @@
 { inputs, config, pkgs, ... }: {
+  imports = [
+    ./conf/autostart.nix
+    ./conf/bindings.nix
+    ./conf/general.nix
+    ./conf/decoration.nix
+    ./conf/input.nix
+  ];
   home.packages = with pkgs; [
     xdg-desktop-portal-hyprland
     rofi-wayland
@@ -13,6 +20,5 @@
     plugins = [
       #inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
     ];
-    settings = { bind = import ./conf/binds.nix; };
   };
 }

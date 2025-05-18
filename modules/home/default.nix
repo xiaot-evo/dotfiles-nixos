@@ -1,6 +1,19 @@
-{ pkgs, inputs, ... }:
+{ inputs, pkgs, ... }: {
+  imports = [
+    ./DE/hyprland/hypr
+    ./DE/hyprland/hyprpanel
+    ./DE/hyprland/rofi.nix
+    ./DE/hyprland/ags.nix
+    ./DE/hyprland/fonts.nix
+    ./DE/hyprland/gtk.nix
 
-{
+    ./programs/zed-editor.nix
+    ./programs/helix.nix
+    ./programs/git.nix
+    ./programs/fish.nix
+    ./programs/alacritty.nix
+    # ./programs/starship.nix
+  ];
   home.packages = with pkgs; [
     ## cmd
     fastfetch

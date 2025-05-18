@@ -1,26 +1,7 @@
 { inputs, settings, ... }:
 
 {
-  imports = [
-    ../assets
-    ./packages.nix
-
-    ./hypr
-    ./hyprpanel
-    ./rofi.nix
-    ./ags.nix
-
-    ./zed-editor.nix
-    ./helix.nix
-    # ./gnome.nix
-    ./git.nix
-    ./gtk.nix
-    ./fonts.nix
-    ./fish
-    ./alacritty.nix
-    # ./starship.nix
-
-  ];
+  imports = [ ../assets ../modules/home ];
 
   nixpkgs = {
     # You can add overlays here
