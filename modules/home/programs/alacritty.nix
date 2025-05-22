@@ -2,18 +2,29 @@
   programs.alacritty = {
     enable = true;
     settings = {
+      general = {
+        working_directory = "None"; # "None"
+        live_config_reload = false;
+      };
       window = {
         # 窗口尺寸大小（配置变更需要重启生效）
         #
         # 终端显示的列和行的数量。列的数量至少是 2，如果设置为 0 那么会使用窗口管理器决定的大小。
         dimensions = {
-          columns = 120;
-          lines = 40;
+          columns = 0;
+          lines = 0;
         };
+        # 窗口启动位置
+        position = "None";
+        # 在窗口周围添加的空白区域（以像素为单位）。此填充按 DPI 缩放，并且始终在相对的两侧添加指定的值。
+        padding = {
+          x = 0;
+          y = 0;
+        };
+        dynamic_padding = false; # 在终端内容周围均匀分布额外的填充。
+        # 背景不透明度
         opacity = 0.9;
-        # blur = true;
-        # 在终端内容周围平均分配额外的 padding。
-        # dynamic_padding: false
+        blur = true;
 
         # 窗口的外边框
         #
@@ -56,7 +67,7 @@
         #
         # Override the variant of the GTK theme. Commonly supported values are `dark`
         # and `light`. Set this to `None` to use the default theme variant.
-        # gtk_theme_variant: None
+        # decorations_theme_variant = "Nono";
       };
       scrolling = {
         # 回滚缓冲区中的最大行数。 设置为 0 会禁用滚动
@@ -69,13 +80,13 @@
       font = {
         # 常规字体
         normal = {
-          family = "Source Code Pro";
+          family = "Hack Nerd Font Mono";
           # 字体风格
           style = "Regular";
         };
         # 粗体
         bold = {
-          family = "Hack";
+          family = "Hack Nerd Font Mono";
           style = "Bold";
         };
         # 斜体
@@ -85,7 +96,7 @@
         };
         # 斜粗体
         bold_italic = {
-          family = "Hack";
+          family = "Hack Nerd Font Mono";
           style = "Bold Italic";
         };
         # 字体大小
@@ -96,31 +107,32 @@
           x = 0;
           y = 0;
         };
+        builtin_box_drawing = true;
       };
       colors = {
         primary = {
-          background = "#2E3440";
-          foreground = "#D8DEE9";
+          background = "#ECEFF4";
+          foreground = "#81A1C1";
         };
         normal = {
-          black = "#3B4252";
-          red = "#BF616A";
-          green = "#A3BE8C";
-          yellow = "#EBCB8B";
+          black = "#D8DEE9";
+          red = "#bf616a";
+          green = "#a3be8c";
+          yellow = "#D08770";
           blue = "#81A1C1";
           magenta = "#B48EAD";
           cyan = "#88C0D0";
-          white = "#E5E9F0";
+          white = "#4C566A";
         };
         bright = {
-          black = "#4C566A";
-          red = "#BF616A";
-          green = "#A3BE8C";
-          yellow = "#EBCB8B";
-          blue = "#81A1C1";
+          black = "#D8DEE9";
+          red = "#bf616a";
+          green = "#a3be8c";
+          yellow = "#D08770";
+          blue = "#D8DEE9";
           magenta = "#B48EAD";
-          cyan = "#88C0D0";
-          white = "#ECEFF4";
+          cyan = "#8FBCBB";
+          white = "#D8DEE9";
         };
       };
       # 光标配置

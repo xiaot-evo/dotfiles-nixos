@@ -1,14 +1,15 @@
 {
   wayland.windowManager.hyprland.settings = {
     "$mainMod" = "SUPER";
-    "$fileManager" = "thunar";
+    "$fileManager" = "yazi";
+    "$terminal" = "ghostty";
     bind = [
       ## Hyprland keybinds
 
       # show keybinds list
       "$mainMod, F1, exec, show-keybinds"
       # keybindings
-      "$mainMod, Return, exec, alacritty"
+      "$mainMod, Return, exec, $terminal"
       "$mainMod, Space, exec, rofi -show window"
       "$mainMod, C, killactive"
       "$mainMod, M, exit,"
@@ -90,6 +91,12 @@
       "$mainMod SHIFT, 9, movetoworkspacesilent, 9"
       "$mainMod SHIFT, 0, movetoworkspacesilent, 10"
       "$mainMod CTRL, c, movetoworkspace, empty"
+    ];
+    bindm = [
+      "SUPER, mouse:272, movewindow"
+      "SUPER, Control_L, movewindow"
+      "SUPER, mouse:273, resizewindow"
+      "SUPER, ALT_L, resizewindow"
     ];
   };
 }

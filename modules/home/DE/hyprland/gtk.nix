@@ -6,22 +6,23 @@
     # x11.enable = true;
     package = pkgs.bibata-cursors;
     name = "Bibata-Modern-Classic";
-    # size = 16;
+    size = 16;
   };
 
   gtk = {
     enable = true;
     theme = {
-      name = "Colloid-Dark-Nord";
+      name = "Colloid-Light-Nord";
+      # name = "adw-gtk3-light";
       package = (pkgs.colloid-gtk-theme.override {
         themeVariants = [ "default" ];
-        colorVariants = [ "dark" ];
+        colorVariants = [ "light" ];
         sizeVariants = [ "standard" ];
         tweaks = [ "nord" "rimless" "normal" ];
       });
     };
     iconTheme = {
-      name = "Tela-nord-dark";
+      name = "Tela-nord-light";
       package = pkgs.tela-icon-theme;
     };
     # cursorTheme = {

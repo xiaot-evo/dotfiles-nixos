@@ -5,12 +5,12 @@
     ./conf/general.nix
     ./conf/decoration.nix
     ./conf/input.nix
+    ./conf/gestures.nix
+    ./conf/group.nix
+    ./conf/misc.nix
+    ./conf/others.nix
   ];
-  home.packages = with pkgs; [
-    xdg-desktop-portal-hyprland
-    rofi-wayland
-    xfce.thunar
-  ];
+  home.packages = with pkgs; [ rofi-wayland swww ];
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;

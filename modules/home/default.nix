@@ -1,7 +1,7 @@
 { inputs, pkgs, ... }: {
   imports = [
     ./DE/hyprland/hypr
-    ./DE/hyprland/hyprpanel
+    # ./DE/hyprland/hyprpanel
     ./DE/hyprland/rofi.nix
     ./DE/hyprland/ags.nix
     ./DE/hyprland/fonts.nix
@@ -11,7 +11,8 @@
     ./programs/helix.nix
     ./programs/git.nix
     ./programs/fish.nix
-    ./programs/alacritty.nix
+    # ./programs/alacritty.nix
+    ./programs/ghostty.nix
     # ./programs/starship.nix
   ];
   home.packages = with pkgs; [
@@ -19,8 +20,9 @@
     fastfetch
     git
     wget
+    yazi
+    # inputs.Neve.packages.${system}.default
     ## desktop
-    clash-verge-rev
     bilibili
     qq
     wechat-uos
@@ -29,18 +31,18 @@
     inputs.zen-browser.packages."${system}".twilight
     obs-studio
     motrix
-    # alacritty
+    clash-verge-rev
     ## fonts
     noto-fonts
     noto-fonts-cjk-sans
-    noto-fonts-cjk-serif
+    noto-fonts-extra
+    noto-fonts-color-emoji
 
-    # sarasa-gothic  #更纱黑体
-    smiley-sans
     maple-mono.NF
     maple-mono.NF-CN
+
     nerd-fonts.hack
+    nerd-fonts.jetbrains-mono
     source-code-pro
-    jetbrains-mono
   ];
 }

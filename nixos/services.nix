@@ -21,6 +21,7 @@
     #   wayland = true;
     # };
   };
+  services.upower.enable = true;
   # Enable CUPS to print documents.
   services.printing.enable = true;
   # Enable touchpad support (enabled default in most desktopManager).

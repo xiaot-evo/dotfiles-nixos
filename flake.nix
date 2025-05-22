@@ -29,6 +29,10 @@
       url = "github:jas-singhfsu/hyprpanel";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # Neve = {
+    #   url = "github:xiaoting120/Neve";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
   outputs = inputs@{ nixpkgs, home-manager, ... }:
     let

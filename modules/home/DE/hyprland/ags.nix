@@ -29,6 +29,9 @@
   };
   home.packages = with pkgs;
     [
-
+      libadwaita
+      gjs
+      brightnessctl
+      upower
     ];
 }
