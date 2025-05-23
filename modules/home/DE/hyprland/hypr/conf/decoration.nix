@@ -40,9 +40,5 @@
       # offset = [ "0" "0" ];
       scale = 1.0;
     };
-    # animations = {
-    #   enabled = true;
-    #   first_launch_animation = true;
-    # };
   };
 }

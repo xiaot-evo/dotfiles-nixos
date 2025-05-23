@@ -1,7 +1,7 @@
 { inputs, settings, ... }:
 
 {
-  imports = [ ../assets ../modules/home ];
+  imports = [ ../modules/home ];
 
   nixpkgs = {
     # You can add overlays here

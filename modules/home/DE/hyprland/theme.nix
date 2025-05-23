@@ -3,10 +3,12 @@
 {
   home.pointerCursor = {
     gtk.enable = true;
-    # x11.enable = true;
+    x11.enable = true;
+    hyprcursor.enable = true;
+    hyprcursor.size = 20;
     package = pkgs.bibata-cursors;
     name = "Bibata-Modern-Classic";
-    size = 16;
+    size = 20;
   };
 
   gtk = {
@@ -25,15 +27,15 @@
       name = "Tela-nord-light";
       package = pkgs.tela-icon-theme;
     };
-    # cursorTheme = {
-    #   name = "Bibata-Modern-Classic";
-    #   package = pkgs.bibata-cursors;
-    #   size = 16;
-    # };
-    # font = {
-    #   name = "";
-    #   package = pkg.;
-    #   size = "";
-    # };
+    cursorTheme = {
+      name = "Bibata-Modern-Classic";
+      package = pkgs.bibata-cursors;
+      size = 20;
+    };
+    font = {
+      name = "Smiley Sans";
+      # package = pkg.;
+      size = 12;
+    };
   };
 }

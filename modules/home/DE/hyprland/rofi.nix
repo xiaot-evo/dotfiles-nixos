@@ -1,15 +1,14 @@
 { ... }: {
   xdg.configFile."rofi/theme.rasi".text = ''
     * {
-      bg-col: #1D2021;
-      bg-col-light: #282828;
-      border-col: #A89984;
-      selected-col: #3C3836;
-      green: #98971A;
-      fg-col: #FBF1C7;
-      fg-col2: #EBDBB2;
-      grey: #BDAE93;
-      highlight: @green;
+        bg0:    #2E3440F2;
+        bg1:    #3B4252;
+        bg2:    #4C566A80;
+        bg3:    #88C0D0F2;
+        fg0:    #D8DEE9;
+        fg1:    #ECEFF4;
+        fg2:    #D8DEE9;
+        fg3:    #4C566A;
     }
   '';
 
@@ -36,92 +35,100 @@
 
     @theme "theme"
 
-    element-text, element-icon , mode-switcher {
-      background-color: inherit;
-      text-color:       inherit;
+    * {
+        font:   "Noto Sans CJK SC";
+
+        background-color:   transparent;
+        text-color:         @fg0;
+
+        margin:     0px;
+        padding:    0px;
+        spacing:    0px;
     }
 
     window {
-      height: 530px;
-      width: 400px;
-      border: 2px;
-      border-color: @border-col;
-      background-color: @bg-col;
+        location:       north;
+        y-offset:       calc(50% - 176px);
+        width:          480;
+        border-radius:  24px;
+
+        background-color:   @bg0;
     }
 
     mainbox {
-      background-color: @bg-col;
+        padding:    12px;
     }
 
     inputbar {
-      children: [prompt,entry];
-      background-color: @bg-col-light;
-      border-radius: 5px;
-      padding: 0px;
+        background-color:   @bg1;
+        border-color:       @bg3;
+
+        border:         2px;
+        border-radius:  16px;
+
+        padding:    8px 16px;
+        spacing:    8px;
+        children:   [ prompt, entry ];
     }
 
     prompt {
-      background-color: @green;
-      padding: 4px;
-      text-color: @bg-col-light;
-      border-radius: 3px;
-      margin: 10px 0px 10px 10px;
-    }
-
-    textbox-prompt-colon {
-      expand: false;
-      str: ":";
+        text-color: @fg2;
     }
 
     entry {
-      padding: 6px;
-      margin: 10px 10px 10px 5px;
-      text-color: @fg-col;
-      background-color: @bg-col;
-      border-radius: 3px;
+        placeholder:        "Search";
+        placeholder-color:  @fg3;
+    }
+
+    message {
+        margin:             12px 0 0;
+        border-radius:      16px;
+        border-color:       @bg2;
+        background-color:   @bg2;
+    }
+
+    textbox {
+        padding:    8px 24px;
     }
 
     listview {
-      border: 0px 0px 0px;
-      padding: 6px 0px 0px;
-      margin: 10px 0px 0px 6px;
-      columns: 1;
-      background-color: @bg-col;
-      cycle: true;
+        background-color:   transparent;
+
+        margin:     12px 0 0;
+        lines:      8;
+        columns:    1;
+
+        fixed-height: false;
     }
 
     element {
-      padding: 8px;
-      margin: 0px 10px 4px 4px;
-      background-color: @bg-col;
-      text-color: @fg-col;
+        padding:        8px 16px;
+        spacing:        8px;
+        border-radius:  16px;
+    }
+
+    element normal active {
+        text-color: @bg3;
+    }
+
+    element alternate active {
+        text-color: @bg3;
+    }
+
+    element selected normal, element active {
+        background-color:   @bg3;
+    }
+    element selected {
+        text-color: @bg1;
     }
 
     element-icon {
-      size: 28px;
+        size:           1em;
+        vertical-align: 0.5;
     }
 
-    element selected {
-      background-color:  @selected-col ;
-      text-color: @fg-col2  ;
-      border-radius: 3px;
-    }
-
-    mode-switcher {
-      spacing: 0;
-    }
-
-    button {
-      padding: 10px;
-      background-color: @bg-col-light;
-      text-color: @grey;
-      vertical-align: 0.5;
-      horizontal-align: 0.5;
-    }
-
-    button selected {
-      background-color: @bg-col;
-      text-color: @green;
+    element-text {
+        text-color: inherit;
     }
   '';
 }

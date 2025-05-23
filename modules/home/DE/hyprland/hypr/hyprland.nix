@@ -1,16 +1,24 @@
 { inputs, config, pkgs, ... }: {
   imports = [
-    ./conf/autostart.nix
-    ./conf/bindings.nix
-    ./conf/general.nix
-    ./conf/decoration.nix
-    ./conf/input.nix
-    ./conf/gestures.nix
-    ./conf/group.nix
-    ./conf/misc.nix
-    ./conf/others.nix
+    conf/autostart.nix
+    conf/bindings.nix
+    conf/general.nix
+    conf/decoration.nix
+    conf/input.nix
+    conf/gestures.nix
+    conf/group.nix
+    conf/misc.nix
+    conf/animation.nix
+    conf/env.nix
+    conf/others.nix
   ];
-  home.packages = with pkgs; [ rofi-wayland swww ];
+  home.packages = with pkgs; [
+    hyprcursor
+    rofi-wayland
+    swww
+    xfce.thunar
+    bibata-cursors
+  ];
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;

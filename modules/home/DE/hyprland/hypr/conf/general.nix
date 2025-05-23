@@ -1,6 +1,6 @@
 {
   wayland.windowManager.hyprland.settings.general = {
-    border_size = 1; # 边框大小，默认 2
+    border_size = 2; # 边框大小，默认 2
     no_border_on_floating = false; # 浮动窗口是否无边框，默认 false
     gaps_in = 5; # 窗口之间的内部间隙，默认 5
     gaps_out = 8; # 窗口与屏幕边缘的外部间隙，默认 20
