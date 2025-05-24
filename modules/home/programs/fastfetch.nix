@@ -15,8 +15,6 @@
       };
       display = { separator = " •  "; };
       modules = [
-        "break"
-        "break"
         {
           type = "title";
           color = {
@@ -63,8 +61,6 @@
           type = "colors";
           symbol = "circle";
         }
-        "break"
-        "break"
       ];
 
     };
