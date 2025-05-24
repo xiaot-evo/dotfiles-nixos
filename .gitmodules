@@ -1,3 +1,6 @@
 [submodule "assets/ags-gtk4"]
 	path = assets/ags-gtk4
 	url = https://github.com/acdcbyl/ags-gtk4.git
+[submodule "assets/rime-ice/share/rime-data"]
+	path = assets/rime-ice/share/rime-data
+	url = https://github.com/iDvel/rime-ice.git
