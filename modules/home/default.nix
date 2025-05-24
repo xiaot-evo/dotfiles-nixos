@@ -12,7 +12,8 @@
     programs/fish.nix
     # programs/alacritty.nix
     programs/ghostty.nix
-    programs/starship.nix
+    programs/fastfetch.nix
+    # programs/starship.nix
   ];
   home.packages = with pkgs; [
     ## cmd
