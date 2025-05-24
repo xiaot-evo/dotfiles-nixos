@@ -8,7 +8,7 @@
         # width = 65;
         # height = 35;
         padding = {
-          top = 3;
+          top = 1;
           left = 0;
           right = 3;
         };
