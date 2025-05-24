@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, ... }: {
+{ pkgs, ... }: {
   imports = [
     conf/autostart.nix
     conf/bindings.nix

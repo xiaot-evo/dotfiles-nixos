@@ -1,35 +1,70 @@
-{ ... }:
-{
+{ ... }: {
   programs.fastfetch = {
     enable = true;
     settings = {
       logo = {
-        source = "nixos_small";
+        type = "small";
+        source = "nixos";
+        # width = 65;
+        # height = 35;
         padding = {
-          right = 1;
+          top = 3;
+          left = 0;
+          right = 3;
         };
       };
-      display = {
-        size = {
-          binaryPrefix = "si";
-        };
-        color = "blue";
-        separator = "  ";
-      };
+      display = { separator = " •  "; };
       modules = [
+        "break"
+        "break"
         {
-          type = "datetime";
-          key = "Date";
-          format = "{1}-{3}-{11}";
-        }
-        {
-          type = "datetime";
-          key = "Time";
-          format = "{14}:{17}:{20}";
+          type = "title";
+          color = {
+            user = "36";
+            at = "34";
+            host = "36";
+          };
         }
         "break"
-        "player"
-        "media"
+        {
+          type = "os";
+          key = "distribution   ";
+          keyColor = "32";
+        }
+        {
+          type = "kernel";
+          key = "linux kernel   ";
+          keyColor = "32";
+        }
+        {
+          type = "packages";
+          # format = "{}";
+          key = "packages       ";
+          keyColor = "32";
+        }
+        {
+          type = "shell";
+          key = "unix shell     ";
+          keyColor = "32";
+        }
+        {
+          type = "terminal";
+          key = "terminal       ";
+          keyColor = "32";
+        }
+        {
+          type = "wm";
+          format = "{} ({3})";
+          key = "window manager ";
+          keyColor = "32";
+        }
+        "break"
+        {
+          type = "colors";
+          symbol = "circle";
+        }
+        "break"
+        "break"
       ];
 
     };
