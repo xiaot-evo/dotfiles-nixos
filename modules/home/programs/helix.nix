@@ -1,9 +1,10 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   programs.helix = {
     enable = true;
     defaultEditor = true;
     settings = {
-      theme = "nord";
+      theme = "catppuccin_latte";
       editor = {
         line-number = "relative";
         mouse = false;
@@ -14,9 +15,19 @@
         lsp.display-messages = true;
       };
       editor.statusline = {
-        left = [ "mode" "spinner" ];
+        left = [
+          "mode"
+          "spinner"
+        ];
         center = [ "file-name" ];
-        right = [ "diagnostics" "selections" "position" "file-encoding" "file-line-ending" "file-type" ];
+        right = [
+          "diagnostics"
+          "selections"
+          "position"
+          "file-encoding"
+          "file-line-ending"
+          "file-type"
+        ];
         separator = "│";
         mode.normal = "NORMAL";
         mode.insert = "INSERT";
@@ -27,26 +38,39 @@
         normal = "block";
         select = "underline";
       };
-      editor.file-picker = { hidden = false; };
+      editor.file-picker = {
+        hidden = false;
+      };
       keys.normal = {
         space.space = "file_picker";
         space.w = ":w";
         space.q = ":q";
-        esc = [ "collapse_selection" "keep_primary_selection" ];
+        esc = [
+          "collapse_selection"
+          "keep_primary_selection"
+        ];
+      };
+      keys.insert = {
+        "A-k" = "normal_mode";
       };
     };
     languages = {
-      language-server.nixd = with pkgs.nixd; {
+      language-server.nixd = {
         command = "${pkgs.nixd}/bin/nixd";
         # args = [ "--stdio" "--tsserver-path=${typescript}/lib/node_modules/typescript/lib" ];
       };
       language = [
         {
           name = "nix";
-          formatter = { command = "nixfmt"; };
+          formatter.command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt";
           language-servers = [ "nixd" ];
-          auto-format = false;
+          auto-format = true;
         }
+        # {
+        #   name = "go";
+        #   formatter.command = "${pkgs.gopls}/bin/gopls";
+        #   language-severs = [ "gopls" ];
+        # }
       ];
     };
   };

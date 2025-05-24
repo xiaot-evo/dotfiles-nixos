@@ -1,6 +1,8 @@
-{ lib, ... }: {
-  programs.sharship = {
+{ lib, ... }:
+{
+  programs.starship = {
     enable = true;
+    enableFishIntegration = true;
     settings = {
       add_newline = false;
       format = lib.concatStrings [

@@ -1,4 +1,5 @@
-{ inputs, pkgs, ... }: {
+{ inputs, pkgs, ... }:
+{
   imports = [
     DE/hyprland/hypr
     DE/hyprland/rofi.nix
@@ -11,7 +12,7 @@
     programs/fish.nix
     # programs/alacritty.nix
     programs/ghostty.nix
-    # programs/starship.nix
+    programs/starship.nix
   ];
   home.packages = with pkgs; [
     ## cmd
