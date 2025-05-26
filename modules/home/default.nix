@@ -12,8 +12,9 @@
     programs/fish.nix
     # programs/alacritty.nix
     programs/ghostty.nix
-    programs/fastfetch.nix
+    # programs/fastfetch.nix
     # programs/starship.nix
+    # programs/zellij.nix
   ];
   home.packages = with pkgs; [
     ## cmd
@@ -21,14 +22,12 @@
     git
     wget
     yazi
-    # inputs.Neve.packages.${system}.default
     ## desktop
     bilibili
     qq
     wechat-uos
     telegram-desktop
     onlyoffice-desktopeditors
-    # libreoffice-qt6-fresh
     inputs.zen-browser.packages."${system}".twilight
     obs-studio
     motrix

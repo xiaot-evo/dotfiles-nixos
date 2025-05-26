@@ -3,10 +3,14 @@
   programs.helix = {
     enable = true;
     defaultEditor = true;
+    extraPackages = with pkgs; [
+      go
+      gopls
+    ];
     settings = {
       theme = "catppuccin_latte";
       editor = {
-        line-number = "relative";
+        line-number = "absolute";
         mouse = false;
         cursorline = true;
         cursorcolumn = true;
@@ -42,23 +46,31 @@
         hidden = false;
       };
       keys.normal = {
-        space.space = "file_picker";
         space.w = ":w";
         space.q = ":q";
         esc = [
           "collapse_selection"
           "keep_primary_selection"
         ];
+        # C-e = "scroll_down";
+        # C-y = "scroll_up";
+        C-e = [
+          "scroll_down"
+          "move_line_down"
+        ];
+        C-y = [
+          "scroll_up"
+          "move_line_up"
+        ];
       };
       keys.insert = {
         "A-k" = "normal_mode";
       };
+      keys.select = {
+        "A-k" = "normal_mode";
+      };
     };
     languages = {
-      language-server.nixd = {
-        command = "${pkgs.nixd}/bin/nixd";
-        # args = [ "--stdio" "--tsserver-path=${typescript}/lib/node_modules/typescript/lib" ];
-      };
       language = [
         {
           name = "nix";
@@ -66,12 +78,19 @@
           language-servers = [ "nixd" ];
           auto-format = true;
         }
-        # {
-        #   name = "go";
-        #   formatter.command = "${pkgs.gopls}/bin/gopls";
-        #   language-severs = [ "gopls" ];
-        # }
+        {
+          name = "go";
+          language-servers = [ "gopls" ];
+        }
       ];
+      language-server = {
+        nixd = {
+          command = "${pkgs.nixd}/bin/nixd";
+        };
+        gopls = {
+          command = "${pkgs.gopls}/bin/gopls";
+        };
+      };
     };
   };
 }
