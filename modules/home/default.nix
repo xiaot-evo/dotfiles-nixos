@@ -10,6 +10,7 @@
     programs/helix.nix
     programs/git.nix
     programs/fish.nix
+    programs/fcitx5.nix
     # programs/alacritty.nix
     programs/ghostty.nix
     # programs/fastfetch.nix
