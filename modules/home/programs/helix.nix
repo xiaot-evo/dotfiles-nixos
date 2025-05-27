@@ -6,6 +6,7 @@
     extraPackages = with pkgs; [
       go
       gopls
+      delve
     ];
     settings = {
       theme = "catppuccin_latte";
@@ -74,12 +75,18 @@
       language = [
         {
           name = "nix";
+          auto-format = true;
           formatter.command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt";
           language-servers = [ "nixd" ];
-          auto-format = true;
         }
         {
           name = "go";
+          scope = "source.go";
+          injection-regex = "gp";
+          file-types = [ "go" ];
+          roots = [ "go.mod" ];
+          auto-format = true;
+          # comment-tokens = "//";
           language-servers = [ "gopls" ];
         }
       ];
@@ -90,6 +97,11 @@
         gopls = {
           command = "${pkgs.gopls}/bin/gopls";
         };
+      };
+      debugger = {
+        name = "go";
+        transport = "tcp";
+        command = "${pkgs.delve}/bin/dlv";
       };
     };
   };

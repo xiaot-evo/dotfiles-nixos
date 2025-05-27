@@ -22,6 +22,7 @@
     git
     wget
     yazi
+    devenv
     ## desktop
     bilibili
     qq

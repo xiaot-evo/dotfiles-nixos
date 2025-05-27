@@ -2,10 +2,17 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, settings, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  settings,
+  ...
+}:
 
 {
-  imports = [ # Include the results of the hardware scan.
+  imports = [
+    # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./nvidia.nix
     ../../nixos/nixos.nix
@@ -33,11 +40,10 @@
     plymouth = {
       enable = true;
       theme = "bgrt";
-      themePackages = with pkgs;
-        [
-          # By default we would install all themes
-          nixos-bgrt-plymouth
-        ];
+      themePackages = with pkgs; [
+        # By default we would install all themes
+        nixos-bgrt-plymouth
+      ];
     };
 
     # Enable "Silent Boot"
@@ -73,17 +79,23 @@
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
   hardware.bluetooth.enable = true; # enables support for Bluetooth
-  hardware.bluetooth.powerOnBoot =
-    true; # powers up the default Bluetooth controller on boot
+  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${settings.username} = {
     isNormalUser = true;
-    extraGroups =
-      [ "wheel" "networkmanager" "vboxusers" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+      "vboxusers"
+    ]; # Enable ‘sudo’ for the user.
     # ignoreShellProgramCheck = true;
 
   };
+  nix.settings.trusted-users = [
+    "root"
+    "xiaoting"
+  ];
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

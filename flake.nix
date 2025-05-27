@@ -4,7 +4,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # nixpkgs.url = "https://mirrors.ustc.edu.cn/nix-channels/nixos-unstable/nixexprs.tar.xz";
-    # home-manager.url = "github:nix-community/home-manager/release-24.11";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -34,14 +33,21 @@
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
   };
-  outputs = inputs@{ nixpkgs, home-manager, ... }:
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      home-manager,
+      ...
+    }:
     let
       settings = {
         system = "x86_64-linux";
         username = "xiaoting";
         hostname = "nixos-acer";
       };
-    in {
+    in
+    {
       nixosConfigurations = {
         ${settings.hostname} = nixpkgs.lib.nixosSystem {
           modules = [ ./hosts/${settings.hostname}/configuration.nix ];
