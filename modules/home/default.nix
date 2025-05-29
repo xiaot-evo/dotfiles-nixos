@@ -5,17 +5,16 @@
     DE/hyprland/rofi.nix
     DE/hyprland/ags.nix
     DE/hyprland/theme.nix
+    DE/hyprland/fcitx5.nix
 
     programs/zed-editor.nix
     programs/helix.nix
     programs/git.nix
     programs/fish.nix
-    programs/fcitx5.nix
     # programs/alacritty.nix
     programs/ghostty.nix
     # programs/fastfetch.nix
     # programs/starship.nix
-    # programs/zellij.nix
   ];
   home.packages = with pkgs; [
     ## cmd

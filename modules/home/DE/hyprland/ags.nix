@@ -1,11 +1,17 @@
-{ config, inputs, pkgs, settings, ... }: {
+{
+  config,
+  inputs,
+  pkgs,
+  settings,
+  ...
+}:
+{
   imports = [ inputs.ags.homeManagerModules.default ];
   programs.ags = {
     enable = true;
     package = inputs.ags.packages.${settings.system}.default;
     # symlink to ~/.config/ags
-    configDir =
-      config.lib.file.mkOutOfStoreSymlink "${inputs.self}/assets/ags-gtk4";
+    configDir = (builtins.toPath (inputs.self + "assets/ags-gtk4"));
     # additional packages to add to gjs's runtime
     extraPackages = with inputs.ags.packages.${settings.system}; [
       io
@@ -28,5 +34,9 @@
       battery
     ];
   };
-  home.packages = with pkgs; [ libadwaita gjs brightnessctl ];
+  home.packages = with pkgs; [
+    libadwaita
+    gjs
+    brightnessctl
+  ];
 }

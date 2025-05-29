@@ -54,6 +54,7 @@
           specialArgs = {
             inherit inputs;
             inherit settings;
+            inherit self;
           }; # this is the important part
         };
       };
@@ -66,6 +67,7 @@
           extraSpecialArgs = {
             inherit inputs;
             inherit settings;
+            inherit self;
           };
         };
       };
