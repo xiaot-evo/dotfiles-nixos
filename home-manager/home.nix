@@ -1,12 +1,14 @@
 { inputs, settings, ... }:
 
 {
-  imports = [ ../modules/home ];
+  imports = [
+    ../modules/home
+    ../assets
+  ];
 
   nixpkgs = {
     # You can add overlays here
     overlays = [
-      inputs.hyprpanel.overlay
 
     ];
     # Configure your nixpkgs instance
@@ -31,6 +33,6 @@
   # You can update Home Manager without changing this value. See
   # the Home Manager release notes for a list of state version
   # changes in each release.
-  home.stateVersion = "25.05";
+  home.stateVersion = "25.11";
 
 }

@@ -1,20 +1,25 @@
-{ pkgs, self, ... }:
+{ pkgs, config, ... }:
 {
   i18n.inputMethod = {
+    # enabled = "fcitx5";
     type = "fcitx5";
     enable = true;
     # waylandFrontend = true;
-    fcitx5.addons = with pkgs; [
-      # rime-data
-      fcitx5-gtk # alternatively, kdePackages.fcitx5-qt
-      # fcitx5-rime
-      # (fcitx5-rime.override { rimeDataPkgs = [ (inputs.self + "/assets/rime-ice") ]; })
-      (fcitx5-rime.override {
-        rimeDataPkgs = [
-          (builtins.toPath (self + "/assets/rime-ice"))
-        ];
-      })
-      # fcitx5-nord
-    ];
+    fcitx5.addons =
+      let
+        config.packageOverrides = pkgs: {
+          fcitx5-rime = pkgs.fcitx5-rime.override {
+            rimeDataPkgs = [
+              ../../../../assets/rime-ice
+            ];
+          };
+        };
+      in
+      with pkgs;
+      [
+        fcitx5-gtk # alternatively, kdePackages.fcitx5-qt
+        fcitx5-rime
+        fcitx5-nord
+      ];
   };
 }

@@ -1,8 +1,34 @@
-{ ... }:{
+{ ... }:
+{
   programs.ghostty = {
     enable = true;
     themes = {
-      
+      catppuccin-latte = {
+        background = "eff1f5";
+        foreground = "4c4f69";
+        cursor-color = "dc8a78";
+        cursor-text = "eff1f5";
+        palette = [
+          "0=#5c5f77"
+          "1=#d20f39"
+          "2=#40a02b"
+          "3=#df8e1d"
+          "4=#1e66f5"
+          "5=#ea76cb"
+          "6=#179299"
+          "7=#acb0be"
+          "8=#6c6f85"
+          "9=#d20f39"
+          "10=#40a02b"
+          "11=#df8e1d"
+          "12=#1e66f5"
+          "13=#ea76cb"
+          "14=#179299"
+          "15=#bcc0cc"
+        ];
+        selection-background = "d8dae1";
+        selection-foreground = "4c4f69";
+      };
     };
     settings = {
       # This is the configuration file for Ghostty.
@@ -31,7 +57,7 @@
       # font-family-italic = "Hack Nerd Font Mono Italic";
       # font-family-bold-italic = "Hack Nerd Font Mono Bold Italic";
       font-size = 13;
-      
+
       # window-padding-x = 2
       #
       # # Spacing around the equals sign does not matter.
@@ -52,10 +78,10 @@
       # # Some config options have unique syntaxes for their value,
       # # which is explained in the docs for that config option.
       # # Just for example:
-      # resize-overlay-duration = 4s 200ms
+      # resize-overlaj-duration = 4s 200ms
       # theme = "dark:MaterialDark,light:Material";
-      theme = "Material";
-      background-opacity = 0.9;
+      theme = "catppuccin-latte";
+      # background-opacitj = 0.9;
       window-decoration = false;
       # initial-command = "fastfetch";
     };
