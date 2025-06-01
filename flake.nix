@@ -3,26 +3,22 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # nixpkgs.url = "https://mirrors.ustc.edu.cn/nix-channels/nixos-unstable/nixexprs.tar.xz";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
-      # IMPORTANT: we're using "libgbm" and is only available in unstable so ensure
-      # to have it up to date or simply don't specify the nixpkgs input
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland.url = "github:hyprwm/Hyprland";
-
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland"; # Prevents version mismatch.
-    };
     ags = {
       url = "github:aylur/ags";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    rime-ice = {
+      url = "github:iDvel/rime-ice";
+      flake = false; # 它不是一个 flake 仓库
     };
   };
   outputs =
@@ -33,10 +29,11 @@
       ...
     }:
     let
-      settings = {
+      settings = rec {
         system = "x86_64-linux";
         username = "xiaoting";
         hostname = "nixos-acer";
+        self = "/home/${hostname}/NixOS";
       };
     in
     {

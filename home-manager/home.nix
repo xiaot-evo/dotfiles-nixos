@@ -3,7 +3,7 @@
 {
   imports = [
     ../modules/home
-    ../assets
+    # ../assets
   ];
 
   nixpkgs = {
