@@ -6,6 +6,7 @@
 
     programs/clash-verge.nix
     programs/bash.nix
+    ./programs/virt-manager.nix
     # programs/onlyoffice.nix
   ];
   environment.systemPackages = with pkgs; [

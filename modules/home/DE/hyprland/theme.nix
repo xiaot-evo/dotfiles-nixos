@@ -16,12 +16,18 @@
     theme = {
       name = "Colloid-Light-Nord";
       # name = "adw-gtk3-light";
-      package = (pkgs.colloid-gtk-theme.override {
-        themeVariants = [ "default" ];
-        colorVariants = [ "light" ];
-        sizeVariants = [ "standard" ];
-        tweaks = [ "nord" "rimless" "normal" ];
-      });
+      package = (
+        pkgs.colloid-gtk-theme.override {
+          themeVariants = [ "default" ];
+          colorVariants = [ "light" ];
+          sizeVariants = [ "standard" ];
+          tweaks = [
+            "nord"
+            "rimless"
+            "normal"
+          ];
+        }
+      );
     };
     iconTheme = {
       name = "Tela-nord-light";

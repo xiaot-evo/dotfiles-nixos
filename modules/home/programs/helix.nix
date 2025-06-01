@@ -65,10 +65,10 @@
         ];
       };
       keys.insert = {
-        "A-k" = "normal_mode";
+        "A-j" = "normal_mode";
       };
       keys.select = {
-        "A-k" = "normal_mode";
+        "A-j" = "normal_mode";
       };
     };
     languages = {

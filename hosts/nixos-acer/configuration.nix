@@ -88,13 +88,14 @@
       "wheel"
       "networkmanager"
       "vboxusers"
+      "libvirtd"
     ]; # Enable ‘sudo’ for the user.
     # ignoreShellProgramCheck = true;
 
   };
   nix.settings.trusted-users = [
     "root"
-    "xiaoting"
+    "${settings.username}"
   ];
 
   # Open ports in the firewall.

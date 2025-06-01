@@ -22,6 +22,11 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu.vhostUserPackages = with pkgs; [ virtiofsd ];
+  };
+
   nix.gc = {
     automatic = true;
     dates = "weekly";

@@ -13,7 +13,7 @@
     programs/fish.nix
     # programs/alacritty.nix
     programs/ghostty.nix
-    programs/zellij.nix
+    # programs/zellij.nix
     programs/direnv.nix
     # programs/fastfetch.nix
     # programs/starship.nix
