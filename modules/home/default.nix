@@ -30,10 +30,10 @@
     qq
     wechat-uos
     telegram-desktop
+    discord
     onlyoffice-desktopeditors
     inputs.zen-browser.packages."${system}".twilight
     obs-studio
-    motrix
     clash-verge-rev
     ## fonts
     noto-fonts

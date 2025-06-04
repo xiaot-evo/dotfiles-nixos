@@ -1,5 +1,4 @@
 {
-  config,
   inputs,
   pkgs,
   settings,
@@ -11,7 +10,7 @@
     enable = true;
     package = inputs.ags.packages.${settings.system}.default;
     # symlink to ~/.config/ags
-    configDir = (builtins.toPath (inputs.self + "assets/ags-gtk4"));
+    configDir = inputs.ags-gtk4;
     # additional packages to add to gjs's runtime
     extraPackages = with inputs.ags.packages.${settings.system}; [
       io
@@ -38,5 +37,13 @@
     libadwaita
     gjs
     brightnessctl
+    glib
+    hyprshade
+    slurp
+    wayshot
+    wl-clipboard
+    wf-recorder
+    killall
+    better-control
   ];
 }

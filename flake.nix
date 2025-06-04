@@ -20,6 +20,10 @@
       url = "github:iDvel/rime-ice";
       flake = false; # 它不是一个 flake 仓库
     };
+    ags-gtk4 = {
+      url = "github:acdcbyl/ags-gtk4";
+      flake = false;
+    };
   };
   outputs =
     inputs@{

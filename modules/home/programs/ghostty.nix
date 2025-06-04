@@ -29,6 +29,32 @@
         selection-background = "d8dae1";
         selection-foreground = "4c4f69";
       };
+      catppuccin-mocha = {
+        background = "1e1e2e";
+        foreground = "cdd6f4";
+        cursor-color = "f5e0dc";
+        cursor-text = "1e1e2e";
+        palette = [
+          "0=#45475a"
+          "1=#f38ba8"
+          "2=#a6e3a1"
+          "3=#f9e2af"
+          "4=#89b4fa"
+          "5=#f5c2e7"
+          "6=#94e2d5"
+          "7=#bac2de"
+          "8=#585b70"
+          "9=#f38ba8"
+          "10=#a6e3a1"
+          "11=#f9e2af"
+          "12=#89b4fa"
+          "13=#f5c2e7"
+          "14=#94e2d5"
+          "15=#a6adc8"
+        ];
+        selection-background = "353749";
+        selection-foreground = "cdd6f4";
+      };
     };
     settings = {
       # This is the configuration file for Ghostty.
@@ -79,8 +105,8 @@
       # # which is explained in the docs for that config option.
       # # Just for example:
       # resize-overlaj-duration = 4s 200ms
-      # theme = "dark:MaterialDark,light:Material";
-      theme = "catppuccin-latte";
+      theme = "dark:catppuccin-mocha,light:catppuccin-latte";
+      # theme = "catppuccin-latte";
       # background-opacitj = 0.9;
       window-decoration = false;
       # initial-command = "fastfetch";

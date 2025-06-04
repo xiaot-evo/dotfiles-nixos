@@ -2,14 +2,14 @@
 {
   programs.helix = {
     enable = true;
-    defaultEditor = true;
+    # defaultEditor = true;
     extraPackages = with pkgs; [
       go
       gopls
       delve
     ];
     settings = {
-      theme = "catppuccin_latte";
+      theme = "catppuccin_mocha";
       editor = {
         line-number = "absolute";
         mouse = false;
@@ -81,10 +81,10 @@
         }
         {
           name = "go";
-          scope = "source.go";
-          injection-regex = "gp";
-          file-types = [ "go" ];
-          roots = [ "go.mod" ];
+          # scope = "source.go";
+          # injection-regex = "gp";
+          # file-types = [ "go" ];
+          # roots = [ "go.mod" ];
           auto-format = true;
           # comment-tokens = "//";
           language-servers = [ "gopls" ];

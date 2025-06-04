@@ -21,10 +21,23 @@
   };
 
   nixpkgs.config.allowUnfree = true;
-
+  environment.systemPackages = with pkgs; [
+    qemu_full
+    qemu-utils
+  ];
   virtualisation.libvirtd = {
     enable = true;
-    qemu.vhostUserPackages = with pkgs; [ virtiofsd ];
+    qemu = {
+      vhostUserPackages = with pkgs; [ virtiofsd ];
+      ovmf = {
+        enable = true;
+        packages = [ pkgs.OVMFFull.fd ];
+      };
+      swtpm = {
+        enable = true;
+        package = pkgs.swtpm;
+      };
+    };
   };
 
   nix.gc = {
