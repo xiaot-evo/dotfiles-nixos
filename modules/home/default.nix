@@ -8,6 +8,7 @@
     DE/hyprland/fcitx5.nix
 
     programs/zed-editor.nix
+    programs/neovide.nix
     programs/helix.nix
     programs/git.nix
     programs/fish.nix

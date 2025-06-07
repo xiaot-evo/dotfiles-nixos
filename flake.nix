@@ -7,18 +7,18 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # nbfc-linux = {
+    #   url = "github:nbfc-linux/nbfc-linux";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland.url = "github:hyprwm/Hyprland";
+    # hyprland.url = "github:hyprwm/Hyprland";
     ags = {
       url = "github:aylur/ags";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-    rime-ice = {
-      url = "github:iDvel/rime-ice";
-      flake = false; # 它不是一个 flake 仓库
     };
     ags-gtk4 = {
       url = "github:acdcbyl/ags-gtk4";
@@ -56,7 +56,7 @@
       homeConfigurations = {
         ${settings.username} = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${settings.system};
-          modules = [ ./home-manager/home.nix ];
+          modules = [ ./home-manager/${settings.username}-home.nix ];
           extraSpecialArgs = {
             inherit inputs;
             inherit settings;
