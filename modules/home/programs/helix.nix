@@ -4,9 +4,14 @@
     enable = true;
     # defaultEditor = true;
     extraPackages = with pkgs; [
-      go
+      nixd
+      # go
       gopls
       delve
+      typescript-language-server
+      superhtml
+      prettier
+      vscode-langservers-extracted
     ];
     settings = {
       theme = "catppuccin_mocha";
@@ -53,8 +58,6 @@
           "collapse_selection"
           "keep_primary_selection"
         ];
-        # C-e = "scroll_down";
-        # C-y = "scroll_up";
         C-e = [
           "scroll_down"
           "move_line_down"
@@ -86,8 +89,40 @@
           # file-types = [ "go" ];
           # roots = [ "go.mod" ];
           auto-format = true;
+          # formatter = {
+          #   command = "${pkgs.go}/bin/gofmt";
+          # };
           # comment-tokens = "//";
           language-servers = [ "gopls" ];
+        }
+        {
+          name = "html";
+          auto-format = true;
+          formatter = {
+            command = "${pkgs.prettier}/bin/prettier";
+            args = [
+              "--parser"
+              "html"
+            ];
+          };
+          # language-servers = [ "superhtml" ];
+          language-servers = [
+            {
+              name = "superhtml";
+              except-features = [ "format" ];
+            }
+            "vscode-html-language-server"
+          ];
+        }
+        {
+          name = "javascript";
+          auto-format = true;
+          language-servers = [ "typescript-language-server" ];
+        }
+        {
+          name = "typescript";
+          auto-format = true;
+          language-servers = [ "typescript-language-server" ];
         }
       ];
       language-server = {
@@ -96,13 +131,26 @@
         };
         gopls = {
           command = "${pkgs.gopls}/bin/gopls";
+          config.gofumpt = true;
+        };
+        typescript-language-server = {
+          command = "${pkgs.typescript-language-server}/bin/typescript-language-server";
+        };
+        superhtml = {
+          command = "${pkgs.superhtml}/bin/superhtml";
+          args = [ "lsp" ];
+        };
+        vscode-html-language-server = {
+          command = "${pkgs.vscode-langservers-extracted}/bin/vscode-html-language-server";
         };
       };
-      debugger = {
-        name = "go";
-        transport = "tcp";
-        command = "${pkgs.delve}/bin/dlv";
-      };
+      debugger = [
+        {
+          name = "go";
+          transport = "tcp";
+          command = "${pkgs.delve}/bin/dlv";
+        }
+      ];
     };
   };
 }

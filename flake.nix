@@ -24,6 +24,10 @@
       url = "github:acdcbyl/ags-gtk4";
       flake = false;
     };
+    nixvim = {
+      url = "/home/xiaoting/Projects/Nix/nvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     inputs@{

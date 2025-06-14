@@ -10,7 +10,7 @@
     programs/onlyoffice.nix
     programs/nbfc-linux.nix
   ];
-  environment.systemPackages = with pkgs; [
-    home-manager
-  ];
+  # environment.systemPackages = with pkgs; [
+  #   home-manager
+  # ];
 }
