@@ -1,24 +1,16 @@
 { inputs, pkgs, ... }:
 {
   imports = [
-    DE/hyprland/hypr
-    DE/hyprland/rofi.nix
-    DE/hyprland/ags.nix
-    DE/hyprland/theme.nix
-    DE/hyprland/fcitx5.nix
+    ./DE/NIRIDE
+    # ./DE/budgie
 
-    # programs/zed-editor.nix
-    # programs/neovide.nix
-    ./programs/vscode.nix
+    programs/zed-editor.nix
+    programs/neovide.nix
     programs/helix.nix
     programs/git.nix
     programs/fish.nix
-    # programs/alacritty.nix
     programs/ghostty.nix
-    # programs/zellij.nix
     programs/direnv.nix
-    # programs/fastfetch.nix
-    # programs/starship.nix
   ];
   home.packages = with pkgs; [
     ## cmd
@@ -27,6 +19,7 @@
     wget
     yazi
     devenv
+    xwayland-satellite
     ## desktop
     bilibili
     qq
@@ -34,9 +27,10 @@
     telegram-desktop
     discord
     onlyoffice-desktopeditors
-    inputs.zen-browser.packages."${system}".twilight
+    inputs.zen-browser.packages."${pkgs.system}".twilight
     obs-studio
     clash-verge-rev
+    # todesk
     ## fonts
     noto-fonts
     noto-fonts-cjk-sans

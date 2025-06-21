@@ -3,41 +3,35 @@
 {
   programs.zed-editor = {
     enable = true;
-    extensions = [ "hyprland" "nix" "v" "hyprlang" ];
+    extensions = [
+      # themes
+      "catppuccin"
+      "catppuccin-icons"
+
+      # languages
+      "nix"
+      "html"
+      "unocss"
+
+    ];
     extraPackages = with pkgs; [
       nixd
       nixfmt-classic
-      package-version-server
-      hyprlang
     ];
-    userKeymaps = {
-
-    };
     userSettings = {
-      lsp = {
-        nixd = {
-          settings = {
-            diagnostic = {
-              suppress = [ "sema-extra-with" ];
-
+      lsp={
+        nixd= {
+          initialization_options= {
+            formatting= {
+              command = ["nixfmt"];
             };
-
-          };
-          initialization_option = {
-            formatting = {
-              command = [ "nixfmt" ];
-
-            };
-
           };
         };
       };
       languages = {
         Nix = {
           language_servers = [ "nixd" "!nil" ];
-
         };
-
       };
       proxy = "http://127.0.0.1:7899";
       vim_mode = false;
@@ -45,8 +39,8 @@
       buffer_font_size = 16;
       theme = {
         mode = "system";
-        light = "One Light";
-        dark = "One Dark";
+        light = "Cattpuccin Latte";
+        dark = "Catppuccin Macchiato";
       };
       buffer_font_family = "JetBrains Mono";
     };

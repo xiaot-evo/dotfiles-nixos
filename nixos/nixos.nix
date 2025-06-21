@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
   imports = [
     ../modules/system
@@ -20,7 +20,12 @@
     LC_CTYPE = "en_US.UTF-8";
   };
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs = {
+    overlays = [
+      inputs.niri.overlays.niri
+    ];
+    config.allowUnfree = true;
+  };
   environment.systemPackages = with pkgs; [
     qemu_full
     qemu-utils

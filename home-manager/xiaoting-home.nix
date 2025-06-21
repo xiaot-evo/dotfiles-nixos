@@ -9,7 +9,7 @@
   nixpkgs = {
     # You can add overlays here
     overlays = [
-
+      inputs.niri.overlays.niri
     ];
     # Configure your nixpkgs instance
     config = {

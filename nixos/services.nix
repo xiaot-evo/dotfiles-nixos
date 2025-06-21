@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, lib, ... }:
 
 {
   # Enable sound.
@@ -12,16 +12,43 @@
     jack.enable = true;
     wireplumber.enable = true;
   };
+  services.xserver.enable = true;
   services.displayManager.sddm.enable = true;
-  services.xserver = {
-    enable = true;
-    # displayManager.lightdm.enable = true;
-    # displayManager.gdm = {
-    #   enable = true;
-    #   wayland = true;
-    # };
-  };
-  services.upower.enable = true;
+  # services.xserver = {
+  #   enable = true;
+  #   displayManager.lightdm = {
+  #     enable = true;
+  #     greeters.slick.enable = false;
+  #     greeters.gtk = {
+  #       enable = true;
+  #       iconTheme = {
+  #         name = "Tela-nord-light";
+  #         package = pkgs.tela-icon-theme;
+  #       };
+  #       cursorTheme = {
+  #         name = "Bibata-Modern-Classic";
+  #         package = pkgs.bibata-cursors;
+  #         size = 20;
+  #       };
+  #       theme = {
+  #         name = "Colloid-Light-Nord";
+  #         package = (
+  #           pkgs.colloid-gtk-theme.override {
+  #             themeVariants = [ "default" ];
+  #             colorVariants = [ "light" ];
+  #             sizeVariants = [ "standard" ];
+  #             tweaks = [
+  #               "nord"
+  #               "rimless"
+  #               "normal"
+  #             ];
+  #           }
+  #         );
+  #       };
+  #     };
+  #   };
+  # };
+  # services.upower.enable = true;
   # Enable CUPS to print documents.
   services.printing.enable = true;
   # Enable touchpad support (enabled default in most desktopManager).

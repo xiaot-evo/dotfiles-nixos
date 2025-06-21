@@ -7,23 +7,22 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # nbfc-linux = {
-    #   url = "github:nbfc-linux/nbfc-linux";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # hyprland.url = "github:hyprwm/Hyprland";
-    ags = {
-      url = "github:aylur/ags";
+    niri = {
+      url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    ags-gtk4 = {
-      url = "github:acdcbyl/ags-gtk4";
-      flake = false;
-    };
+    # ags = {
+    #   url = "github:aylur/ags";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+    # ags-gtk4 = {
+    #   url = "github:acdcbyl/ags-gtk4";
+    #   flake = false;
+    # };
     nixvim = {
       url = "/home/xiaoting/Projects/Nix/nvim";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -45,6 +44,7 @@
       };
     in
     {
+      # Configurations
       nixosConfigurations = {
         ${settings.hostname} = nixpkgs.lib.nixosSystem {
           modules = [ ./hosts/${settings.hostname}/configuration.nix ];

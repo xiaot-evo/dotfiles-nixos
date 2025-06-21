@@ -14,7 +14,8 @@
       vscode-langservers-extracted
     ];
     settings = {
-      theme = "catppuccin_mocha";
+      # theme = "catppuccin_mocha";
+      theme = "catppuccin_latte";
       editor = {
         line-number = "absolute";
         mouse = false;

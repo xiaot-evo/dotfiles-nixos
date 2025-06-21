@@ -1,10 +1,11 @@
 { pkgs, ... }:
 {
   imports = [
-    # DE/hyprland/fcitx5.nix
-    DE/hyprland/hyprland.nix
+    # DE/hyprland/hyprland.nix
+    ./DE/niri/niri.nix
+    # ./DE/budgie/default.nix
 
-    programs/clash-verge.nix
+    # programs/clash-verge.nix
     programs/bash.nix
     programs/virt-manager.nix
     programs/onlyoffice.nix
