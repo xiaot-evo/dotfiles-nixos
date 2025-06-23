@@ -17,9 +17,10 @@
     fastfetch
     git
     wget
+    unzip
     yazi
     devenv
-    xwayland-satellite
+    bun
     ## desktop
     bilibili
     qq

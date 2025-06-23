@@ -107,7 +107,7 @@
       # resize-overlaj-duration = 4s 200ms
       theme = "dark:catppuccin-mocha,light:catppuccin-latte";
       # theme = "catppuccin-latte";
-      # background-opacitj = 0.9;
+      # background-opacity = 0.9;
       window-decoration = false;
       # initial-command = "fastfetch";
     };

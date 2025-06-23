@@ -1,5 +1,6 @@
 { pkgs, ... }:
 {
+  home.packages = [ pkgs.swayidle ];
   systemd.user.services.swayidle = {
     Unit = {
       Description = "Idle watcher";

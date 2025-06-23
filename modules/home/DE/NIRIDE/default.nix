@@ -3,15 +3,15 @@
   imports = [
     ./niri
     ./waybar
-    ./fuzzel.nix
     ./mako.nix
-    ./swww.nix
+    ./fuzzel.nix
     ./swayidle.nix
+    ./swaylock.nix
+    ./xwayland-satellite.nix
+    ./swww.nix
+    # ./mpvpaper.nix
     ./fcitx5.nix
+    ./theme.nix
   ];
-  home.packages = with pkgs; [
-    swww
-    swaylock
-    swayidle
-  ];
+  home.packages = with pkgs; [ nautilus ];
 }
