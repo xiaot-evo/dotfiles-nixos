@@ -4,11 +4,12 @@
     ./niri
     ./waybar
     ./mako.nix
-    ./fuzzel.nix
     ./swayidle.nix
     ./swaylock.nix
     ./xwayland-satellite.nix
     ./swww.nix
+    ./fuzzel.nix
+    # ./rofi.nix
     # ./mpvpaper.nix
     ./fcitx5.nix
     ./theme.nix

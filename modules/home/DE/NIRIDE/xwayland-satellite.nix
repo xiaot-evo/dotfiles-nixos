@@ -20,7 +20,7 @@
 
     Install = {
       # 🔁 开机用户登录时自动启动（相当于 enable --user）
-      WantedBy = [ "graphical-session.target" ];
+      WantedBy = [ "niri.service" ];
     };
   };
 }

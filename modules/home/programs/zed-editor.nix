@@ -19,18 +19,21 @@
       nixfmt-classic
     ];
     userSettings = {
-      lsp={
-        nixd= {
-          initialization_options= {
-            formatting= {
-              command = ["nixfmt"];
+      lsp = {
+        nixd = {
+          initialization_options = {
+            formatting = {
+              command = [ "nixfmt" ];
             };
           };
         };
       };
       languages = {
         Nix = {
-          language_servers = [ "nixd" "!nil" ];
+          language_servers = [
+            "nixd"
+            "!nil"
+          ];
         };
       };
       proxy = "http://127.0.0.1:7899";
@@ -42,7 +45,12 @@
         light = "Cattpuccin Latte";
         dark = "Catppuccin Macchiato";
       };
-      buffer_font_family = "JetBrains Mono";
+      icon_theme = {
+        mode = "system";
+        light = "Cattpuccin Latte";
+        dark = "Catppuccin Macchiato";
+      };
+      buffer_font_family = "JetBrains Mono NL";
     };
   };
 }

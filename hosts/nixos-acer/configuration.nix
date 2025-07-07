@@ -6,7 +6,6 @@
   config,
   lib,
   pkgs,
-  settings,
   ...
 }:
 
@@ -64,7 +63,7 @@
     # It will just not appear on screen unless a key is pressed
 
   };
-  networking.hostName = "${settings.hostname}"; # Define your hostname.
+  networking.hostName = "nixos-acer"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;
@@ -82,20 +81,19 @@
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.${settings.username} = {
+  users.users.xiaoting = {
     isNormalUser = true;
     extraGroups = [
       "wheel"
       "networkmanager"
       "vboxusers"
-      "libvirtd"
     ]; # Enable ‘sudo’ for the user.
     # ignoreShellProgramCheck = true;
 
   };
   nix.settings.trusted-users = [
     "root"
-    "${settings.username}"
+    "xiaoting"
   ];
 
   # Open ports in the firewall.

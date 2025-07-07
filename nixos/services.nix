@@ -4,6 +4,7 @@
   # Enable sound.
   # hardware.pulseaudio.enable = true;
   # OR
+  security.rtkit.enable = true; # Enable RealtimeKit for audio purposes
   services.pipewire = {
     enable = true;
     pulse.enable = true;
@@ -12,7 +13,10 @@
     jack.enable = true;
     wireplumber.enable = true;
   };
-  services.xserver.enable = true;
+  services.xserver = {
+    enable = true;
+    excludePackages = [ pkgs.xterm ];
+  };
   services.displayManager.sddm.enable = true;
   # services.xserver = {
   #   enable = true;

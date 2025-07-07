@@ -26,30 +26,6 @@
     ];
     config.allowUnfree = true;
   };
-  environment.systemPackages = with pkgs; [
-    qemu_full
-    qemu-utils
-  ];
-  virtualisation.libvirtd = {
-    enable = true;
-    qemu = {
-      vhostUserPackages = with pkgs; [ virtiofsd ];
-      ovmf = {
-        enable = true;
-        packages = [ pkgs.OVMFFull.fd ];
-      };
-      swtpm = {
-        enable = true;
-        package = pkgs.swtpm;
-      };
-    };
-  };
-
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 1w";
-  };
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you

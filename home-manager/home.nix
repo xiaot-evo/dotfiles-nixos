@@ -3,6 +3,7 @@
 {
   imports = [
     ../modules/home
+    # ./variables.nix
     # ../assets
   ];
 
@@ -20,8 +21,6 @@
 
   home.username = "${settings.username}";
   home.homeDirectory = "/home/${settings.username}";
-  # home.shell.enableZshIntegration = true;
-  # programs.fish.enable = true;
   programs.home-manager.enable = true;
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
@@ -34,5 +33,4 @@
   # the Home Manager release notes for a list of state version
   # changes in each release.
   home.stateVersion = "25.11";
-
 }

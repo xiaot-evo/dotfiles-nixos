@@ -1,6 +1,9 @@
 { inputs, pkgs, ... }:
 {
   imports = [ inputs.niri.homeModules.niri ];
+  home.packages = with pkgs; [
+    brightnessctl
+  ];
   programs.niri = {
     enable = true;
     # package = pkgs.niri-unstable;

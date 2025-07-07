@@ -1,4 +1,8 @@
-{ inputs, pkgs, ... }:
+{
+  inputs,
+  pkgs,
+  ...
+}:
 {
   imports = [
     ./DE/NIRIDE
@@ -8,9 +12,9 @@
     programs/neovide.nix
     programs/helix.nix
     programs/git.nix
-    programs/fish.nix
     programs/ghostty.nix
     programs/direnv.nix
+    ./programs/nh.nix
   ];
   home.packages = with pkgs; [
     ## cmd
@@ -20,17 +24,20 @@
     unzip
     yazi
     devenv
-    bun
+    neovim
     ## desktop
     bilibili
+    spotify
+    netease-cloud-music-gtk
     qq
     wechat-uos
     telegram-desktop
     discord
     onlyoffice-desktopeditors
-    inputs.zen-browser.packages."${pkgs.system}".twilight
+    inputs.zen-browser.packages."${system}".default
     obs-studio
     clash-verge-rev
+    motrix
     # todesk
     ## fonts
     noto-fonts

@@ -1,4 +1,12 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
+  programs.fish = {
+    enable = true;
+    # generateCompletions = true;
+    shellInit = ''
+      set -g "fish_greeting" 
+    '';
+  };
   programs.bash = {
     completion.enable = true;
     interactiveShellInit = ''

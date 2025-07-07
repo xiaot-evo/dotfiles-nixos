@@ -1,5 +1,6 @@
 { pkgs, ... }:
 {
+  home.packages = [ pkgs.mako ];
   services.mako = {
     enable = true;
     package = pkgs.mako;
@@ -8,9 +9,9 @@
       anchor = "top-right";
       background-color = "#000000";
       border-color = "#FFFFFF";
-      border-radius = 0;
+      border-radius = 10;
       default-timeout = 0;
-      font = "monospace 10";
+      font = "Maple Mono NF CN Medium";
       height = 100;
       width = 300;
       icons = true;
